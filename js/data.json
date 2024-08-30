@@ -1,0 +1,114 @@
+{
+  "customLinks": [
+    { "title": "网站首页", "link": "#" },
+    { "title": "官方导航", "link": "#" },
+    { "title": "快速充值", "link": "#" }
+  ],
+  "footerLinks": [
+    { "title": "关于我们", "link": "#" },
+    { "title": "联系我们", "link": "#" },
+    { "title": "代理合作", "link": "#" },
+    { "title": "存款帮助", "link": "#" },
+    { "title": "取款帮助", "link": "#" },
+    { "title": "常见问题", "link": "#" }
+  ],
+  "navItems": [
+    {
+      "title": "首页",
+      "link": "#",
+      "class": "first",
+      "subItems": []
+    },
+    {
+      "title": "电子游艺",
+      "link": "#",
+      "class": "game",
+      "subItems": []
+    },
+    {
+      "title": "视讯直播",
+      "link": "#",
+      "class": "live",
+      "subItems": [
+        { "title": "BB视讯", "link": "#" },
+        { "title": "AG视讯", "link": "#" },
+        { "title": "PT视讯", "link": "#" },
+        { "title": "DB视讯", "link": "#" }
+      ]
+    },
+    {
+      "title": "棋牌游戏",
+      "link": "#",
+      "class": "card",
+      "subItems": [
+        { "title": "BB棋牌", "link": "#" },
+        { "title": "开元棋牌", "link": "#" },
+        { "title": "FG棋牌", "link": "#" },
+        { "title": "JDB棋牌", "link": "#" },
+        { "title": "MT棋牌", "link": "#" }
+      ]
+    },
+    {
+      "title": "体育赛事",
+      "link": "#",
+      "class": "ball",
+      "subItems": []
+    },
+    {
+      "title": "彩票游戏",
+      "link": "#",
+      "class": "ltlottery",
+      "subItems": []
+    },
+    {
+      "title": "优惠活动",
+      "link": "#",
+      "class": "customize1",
+      "subItems": []
+    },
+    {
+      "title": "手机下注",
+      "link": "#",
+      "class": "customize2",
+      "subItems": []
+    }
+  ],
+  "hotgames": [
+    { "rank": 1, "icon": "image/hotgame_icon01.png", "nameTop": "真人百家樂", "nameBottom": "Live Casino", "number": "243,062" },
+    { "rank": 2, "icon": "image/hotgame_icon02.png", "nameTop": "麻將胡了", "nameBottom": "Casino", "number": "158,772" },
+    { "rank": 3, "icon": "image/hotgame_icon03.png", "nameTop": "糖果派對", "nameBottom": "Casino", "number": "128,772" },
+    { "rank": 4, "icon": "image/hotgame_icon04.png", "nameTop": "六合彩", "nameBottom": "Lottery", "number": "98,772" },
+    { "rank": 5, "icon": "image/hotgame_icon05.png", "nameTop": "捕魚遊戲", "nameBottom": "Fish Game", "number": "56,772" },
+    { "rank": 6, "icon": "image/hotgame_icon06.png", "nameTop": "牛牛", "nameBottom": "Card game", "number": "43,062" },
+    { "rank": 7, "icon": "image/hotgame_icon07.png", "nameTop": "英雄联盟", "nameBottom": "E-sports", "number": "28,772" },
+    { "rank": 8, "icon": "image/hotgame_icon08.png", "nameTop": "足球联赛", "nameBottom": "Sports", "number": "18,772" },
+    { "rank": 9, "icon": "image/hotgame_icon09.png", "nameTop": "3D彩", "nameBottom": "Lottery", "number": "9,772" },
+    { "rank": 10, "icon": "image/hotgame_icon10.png", "nameTop": "连环夺宝", "nameBottom": "Casino", "number": "6,772" }
+  ],
+  "games": [
+    { "name": "糖果派對", "platform": "BB電子", "image": "image/game_casino/5902.png", "hot": true, "category": "Casino" },
+    { "name": "賞金女王", "platform": "PG電子", "image": "image/game_casino/58069.png", "hot": true, "category": "Casino" },
+    { "name": "聚寶消消樂", "platform": "BB電子", "image": "image/game_casino/5231.jpg", "hot": false, "category": "Casino" },
+    { "name": "麻將胡了", "platform": "PG電子", "image": "image/game_casino/58045.png", "hot": true, "category": "Casino" },
+    { "name": "發財神2", "platform": "CQ9電子", "image": "image/game_casino/52177.png", "hot": false, "category": "Casino" },
+    { "name": "阿斯加德之火", "platform": "MG電子", "image": "image/game_casino/82497.png", "hot": false, "category": "Casino" },
+    { "name": "糖果派對2", "platform": "BB電子", "image": "image/game_casino/5908.png", "hot": false, "category": "Casino" },
+    { "name": "冰球突破", "platform": "MG電子", "image": "image/game_casino/82033.png", "hot": false, "category": "Casino" },
+    { "name": "五龙捕鱼", "platform": "JDB电子", "image": "image/game_fishing/39099.png", "hot": true, "category": "Fishing" },
+    { "name": "龙王捕鱼", "platform": "JDB电子", "image": "image/game_fishing/39047.png", "hot": true, "category": "Fishing" },
+    { "name": "捕鱼王3D", "platform": "AG电子", "image": "image/game_fishing/40116.png", "hot": false, "category": "Fishing" },
+    { "name": "捕鱼乐园", "platform": "AG电子", "image": "image/game_fishing/40186.png", "hot": true, "category": "Fishing" },
+    { "name": "财神捕鱼", "platform": "JDB电子", "image": "image/game_fishing/39064.png", "hot": false, "category": "Fishing" },
+    { "name": "猎龙传说", "platform": "BB电子", "image": "image/game_fishing/30594.png", "hot": false, "category": "Fishing" },
+    { "name": "捕鱼大师", "platform": "BB电子", "image": "image/game_fishing/38001.png", "hot": false, "category": "Fishing" },
+    { "name": "魔鬼克星", "platform": "BB电子", "image": "image/game_fishing/30592.png", "hot": false, "category": "Fishing" },
+    { "name": "火箭鸟", "platform": "WG棋牌", "image": "image/game_card/151037.png", "hot": false, "category": "Card game" },
+    { "name": "财神发发发", "platform": "开元棋牌", "image": "image/game_card/49965.png", "hot": false, "category": "Card game" },
+    { "name": "21点百家乐", "platform": "BB棋牌", "image": "image/game_card/66104.png", "hot": false, "category": "Card game" },
+    { "name": "玛雅神殿", "platform": "WG棋牌", "image": "image/game_card/151038.png", "hot": false, "category": "Card game" },
+    { "name": "炸财神", "platform": "开元棋牌", "image": "image/game_card/49964.png", "hot": false, "category": "Card game" },
+    { "name": "红黑大战", "platform": "BB棋牌", "image": "image/game_card/66078.png", "hot": false, "category": "Card game" },
+    { "name": "捕鱼高手", "platform": "BB棋牌", "image": "image/game_card/66068.png", "hot": false, "category": "Card game" },
+    { "name": "抢庄牌九", "platform": "TP棋牌", "image": "image/game_card/140009.png", "hot": false, "category": "Card game" }
+  ]
+}

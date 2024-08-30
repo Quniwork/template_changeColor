@@ -1,0 +1,19 @@
+// 語系國旗並排
+@if $lang-kind == Flag
+  .ele-lang-wrap
+    .ele-lang-option
+      display: inline-block
+      vertical-align: top
+      background-repeat: no-repeat
+      @if $lang-img == 1
+        background-image: image-url("not-use/lang_rect_a.png")
+      @else if $lang-img == 2
+        background-image: image-url("not-use/lang_circle_a.png")
+    .ele-lang-option
+      display: inline-block
+      width: 22px
+      height: 18px
+      text-align: left
+      @for $i from 1 through 3
+        &.flag0#{$i}
+              background-position: 0 40px - 40px * $i

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/fontawesome.css">
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body class="is-static first zh-tw">
+  <div id="page-layout" class="page-layout">
+    <div class="page-wrap">
+      <header class="page-header">
+        <div id="header-fixed" class="header-fixed-wrap">
+          <div class="ele-fixed-container">
+            <div class="ele-fixed-inner">
+              <div class="header-wrap">
+                <div class="header-logo">
+                  <a href="index.html" class="ele-logo-wrap">
+                    <img src="image/logo.png" class="ele-logo-img">
+                  </a>
+                </div>
+                <div class="header-right">
+                  <div class="header-right-top">
+                    <!-- 美東時間 -->
+                    <div class="est-timing">
+                      <span>美東時間 : </span>
+                      <span>2024/08/26 - 02:56:23</span>
+                    </div>
+                    <!-- 自訂連結 -->
+                    <div class="top-link-wrap">
+                      <div class="ele-custom-link-wrap">
+                        <ul>
+                          <li v-for="(link, index) in customLinks" :key="index">
+                            <a :href="link.link">{{ link.title }}</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <!-- 語系 -->
+                    <div class="lang-wrap">
+                      <div class="ele-lang-wrap">
+                        <div title="繁體中文" data-title="zh-tw" class="ele-lang-option"></div>
+                        <div title="简体中文" data-title="zh-cn" class="ele-lang-option"></div>
+                        <div title="English" data-title="en" class="ele-lang-option"></div>
+                      </div>
+                    </div>
+                    <!-- 登入框 -->
+                    <div class="login-wrap">
+                      <form>
+                        <div class="login-left">
+                          <label class="ele-login-unit">
+                            <input id="js-username" title="请输入4-15个字元, 仅可输入英文字母以及数字的组合!!" name="username" type="text" maxlength="15" pattern="[a-zA-Z0-9]{4,15}" required="required" class="ele-login-input">
+                            <p class="ele-login-placeholder">账号</p>
+                            <span class="ele-acc-unicod">@bin</span>
+                          </label>
+                          <label class="ele-login-unit">
+                            <input title="请填写 6-12 位大小写英数字" type="password" name="password" autocomplete="off" maxlength="12" pattern="[a-zA-Z0-9]{6,12}" required="required" class="ele-login-input">
+                            <p class="ele-login-placeholder">密码</p>
+                            <a href="#" class="ele-show-password black"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentcolor"><path d="M0 0h24v24H0zm0 0h24v24H0zm0 0h24v24H0zm0 0h24v24H0z" fill="none"/><path d="M12 7c2.76 0 5 2.24 5 5 0 .65-.13 1.26-.36 1.83l2.92 2.92c1.51-1.26 2.7-2.89 3.43-4.75-1.73-4.39-6-7.5-11-7.5-1.4 0-2.74.25-3.98.7l2.16 2.16C10.74 7.13 11.35 7 12 7zM2 4.27l2.28 2.28.46.46C3.08 8.3 1.78 10.02 1 12c1.73 4.39 6 7.5 11 7.5 1.55 0 3.03-.3 4.38-.84l.42.42L19.73 22 21 20.73 3.27 3 2 4.27zM7.53 9.8l1.55 1.55c-.05.21-.08.43-.08.65 0 1.66 1.34 3 3 3 .22 0 .44-.03.65-.08l1.55 1.55c-.67.33-1.41.53-2.2.53-2.76 0-5-2.24-5-5 0-.79.2-1.53.53-2.2zm4.31-.78l3.15 3.15.02-.16c0-1.66-1.34-3-3-3l-.17.01z"/></svg></a>
+                            <a href="#" title="忘记?" class="ele-forget-pw">
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 21">
+                                <path d="M12.5-6A10.512,10.512,0,0,1,2-16.5,10.512,10.512,0,0,1,12.5-27,10.512,10.512,0,0,1,23-16.5,10.512,10.512,0,0,1,12.5-6Zm-1-7.015v1.633h1.685v-1.633Zm1.14-7.656h.085a1.6,1.6,0,0,1,1.684,1.531c.068.643-.4,1.313-1.378,1.99a2.74,2.74,0,0,0-1.327,2.4v.562h1.327v-.459a2.064,2.064,0,0,1,1.174-1.838c1.286-.812,1.9-1.757,1.837-2.807-.17-1.692-1.2-2.6-3.062-2.7q-.1,0-.207,0A3.484,3.484,0,0,0,9-18.985l1.48.357C10.777-19.983,11.5-20.671,12.64-20.671Z" transform="translate(-2 27)" fill="currentcolor"/>
+                              </svg>
+                            </svg>
+                            </a>
+                          </label>
+                          <input title="登入" name="Submit" type="submit" value="登入" class="ele-login-submit">
+                          <a href="#" class="ele-join-btn">注册</a>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                  <div class="header-right-bottom">
+                    <div class="mainnav-wrap">
+                      <nav class="ele-navbar">
+                        <ul>
+                          <li
+                            v-for="(item, index) in navItems"
+                            :key="index"
+                            :class="['ele-navbar-link-wrap', `ele-navbar-link-wrap-${item.class}`]"
+                          >
+                            <a
+                              :href="item.link"
+                              :title="item.title"
+                              :class="['ele-navbar-link', { active: isActive(item.class) }]"
+                            >
+                              <p class="ele-navbar-title">{{ item.title }}</p>
+                            </a>
+                            <nav v-if="item.subItems.length" class="ele-subnav">
+                              <ul>
+                                <li v-for="(subItem, subIndex) in item.subItems" :key="subIndex" class="ele-subnav-link-wrap">
+                                  <a :href="subItem.link" :title="subItem.title" class="ele-navbar-sublink">
+                                    {{ subItem.title }}
+                                  </a>
+                                </li>
+                              </ul>
+                            </nav>
+                          </li>
+                        </ul>
+                        <nav class="ele-morenav">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="18" viewBox="0 0 15 18">
+                            <path d="M12,18H3a3,3,0,0,1-3-3V3A3,3,0,0,1,3,0h9a3,3,0,0,1,3,3V15A3,3,0,0,1,12,18ZM3.637,8a.556.556,0,0,0-.367.142A.694.694,0,0,0,3,8.679V8.69a.809.809,0,0,0,.112.391l3.8,3.889a.873.873,0,0,0,.565.247.886.886,0,0,0,.565-.247l3.8-3.892a.809.809,0,0,0,.113-.39V8.676a.7.7,0,0,0-.271-.535A.563.563,0,0,0,11.335,8H11.3a.986.986,0,0,0-.574.276l-3.16,3.167L4.231,8.28A.97.97,0,0,0,3.637,8Z" fill="currentcolor"/>
+                          </svg>
+                          <ul>
+                            <li class="ele-morenav-link-wrap">
+                              <a href="#" class="ele-morenav-sublink">在线客服</a>
+                            </li>
+                          </ul>
+                        </nav>
+                      </nav>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+    </div>
+    <main class="page-container">
+      <section class="first-section-wrap section1">
+        <div class="section-wrap">
+          <div class="first-top-wrap">
+            <div class="slider-wrap">
+              <div class="ad-wrap">
+                <div id="js-ele-slideshow1" class="ele-slideshow-wrap">
+                  <img src="image/event01.png">
+                </div>
+              </div>
+              <div class="first-promotion-warp">
+                <a href="#" class="first-promotion-promotion" @mouseover="imgHover = 1" @mouseleave="imgHover = null">
+                  <img :src="imgHover === 1 ? 'image/lang/zh-cn/btn01_hover.png' : 'image/lang/zh-cn/btn01.png'" alt="Promotion 1">
+                </a>
+                <a href="#" class="first-promotion-promotion" @mouseover="imgHover = 2" @mouseleave="imgHover = null">
+                  <img :src="imgHover === 2 ? 'image/lang/zh-cn/btn02_hover.png' : 'image/lang/zh-cn/btn02.png'" alt="Promotion 2">
+                </a>
+              </div>
+            </div>
+            <div class="news-wrap">
+              <div class="news-title">NEWS</div>
+              <div class="news-item">
+                <div class="ele-msgnews-wrap">
+                  <div class="ele-msgnews-marquee">
+                    <ul class="ele-msgnews-container">
+                      <li class="ele-msgnews">
+                        <a href="#" class="ele-msgnews-link">兩岸三地最熱門的機臺遊戲，結合4層Jackpot累積彩金玩法，移植到你的計算機裡！在家就可以等待從天而降的彩金，你還在等什麼？</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="first-hotgame-warp">
+            <div class="hotgame-title">
+              熱門遊戲<span>Hot Games</span>
+            </div>
+            <div class="hotgame-warp">
+              <!-- 第一組：排名 1 到 5 -->
+              <div class="hotgame-item-warp">
+                <div class="hotgame-item" v-for="(game, index) in hotGames" :key="index" v-if="game.rank <= 5">
+                  <div class="hotgame-rank">
+                    <img :src="'image/ic_crown0' + game.rank + '.png'" :title="'top' + game.rank" v-if="game.rank <= 3">
+                    <span v-else>{{ game.rank }}</span>
+                  </div>
+                  <div class="hotgame-icon">
+                    <img :src="game.icon">
+                  </div>
+                  <div class="hotgame-name">
+                    <div class="hotgame-name-top">{{ game.nameTop }}</div>
+                    <div class="hotgame-name-bottom">{{ game.nameBottom }}</div>
+                  </div>
+                  <div class="hotgame-number">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="11.835" height="13.388" viewBox="0 0 11.835 13.388">
+                      <path d="M.481,13.388l-.079,0a.391.391,0,0,1-.308-.114A.493.493,0,0,1,0,12.928,7.384,7.384,0,0,1,.49,10.66a6.021,6.021,0,0,1,2.14-2.545A9.72,9.72,0,0,1,4,7.421l.159-.064-.151-.08A3.864,3.864,0,0,1,5.818,0c.083,0,.167,0,.25.008a3.864,3.864,0,0,1,.11,7.7c-.211.02-.42.056-.6.089a5.006,5.006,0,0,0-2.453.977A5.14,5.14,0,0,0,1.1,12.012a.354.354,0,0,0,.066.3.287.287,0,0,0,.227.105l9.141.018a.336.336,0,0,0,.319-.361,3.188,3.188,0,0,0-.514-1.663A10.023,10.023,0,0,0,8.9,8.687c-.008-.007-.365-.378-.121-.632a.373.373,0,0,1,.279-.127.818.818,0,0,1,.473.221l0,0,.006,0a6.118,6.118,0,0,1,1.6,1.959,6.935,6.935,0,0,1,.683,2.368l.005.038v.012a.891.891,0,0,1-.134.715.459.459,0,0,1-.363.14ZM5.818.832a3.038,3.038,0,0,0-2.247,1A3.032,3.032,0,0,0,5.51,6.88c.1.01.206.015.309.015a3.038,3.038,0,0,0,2.247-1A3.031,3.031,0,0,0,6.128.847c-.1-.01-.207-.015-.309-.015" fill="currentcolor"/>
+                    </svg>
+                    <span>{{ game.number }}</span>
+                  </div>
+                </div>
+              </div>
+              <!-- 第二組：排名 6 到 10 -->
+              <div class="hotgame-item-warp">
+                <div class="hotgame-item" v-for="(game, index) in hotGames" :key="index" v-if="game.rank > 5">
+                  <div class="hotgame-rank">
+                    <span>{{ game.rank }}</span>
+                  </div>
+                  <div class="hotgame-icon">
+                    <img :src="game.icon">
+                  </div>
+                  <div class="hotgame-name">
+                    <div class="hotgame-name-top">{{ game.nameTop }}</div>
+                    <div class="hotgame-name-bottom">{{ game.nameBottom }}</div>
+                  </div>
+                  <div class="hotgame-number">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="11.835" height="13.388" viewBox="0 0 11.835 13.388">
+                      <path d="M.481,13.388l-.079,0a.391.391,0,0,1-.308-.114A.493.493,0,0,1,0,12.928,7.384,7.384,0,0,1,.49,10.66a6.021,6.021,0,0,1,2.14-2.545A9.72,9.72,0,0,1,4,7.421l.159-.064-.151-.08A3.864,3.864,0,0,1,5.818,0c.083,0,.167,0,.25.008a3.864,3.864,0,0,1,.11,7.7c-.211.02-.42.056-.6.089a5.006,5.006,0,0,0-2.453.977A5.14,5.14,0,0,0,1.1,12.012a.354.354,0,0,0,.066.3.287.287,0,0,0,.227.105l9.141.018a.336.336,0,0,0,.319-.361,3.188,3.188,0,0,0-.514-1.663A10.023,10.023,0,0,0,8.9,8.687c-.008-.007-.365-.378-.121-.632a.373.373,0,0,1,.279-.127.818.818,0,0,1,.473.221l0,0,.006,0a6.118,6.118,0,0,1,1.6,1.959,6.935,6.935,0,0,1,.683,2.368l.005.038v.012a.891.891,0,0,1-.134.715.459.459,0,0,1-.363.14ZM5.818.832a3.038,3.038,0,0,0-2.247,1A3.032,3.032,0,0,0,5.51,6.88c.1.01.206.015.309.015a3.038,3.038,0,0,0,2.247-1A3.031,3.031,0,0,0,6.128.847c-.1-.01-.207-.015-.309-.015" fill="currentcolor"/>
+                    </svg>
+                    <span>{{ game.number }}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="hotgame-control">
+              <a href="#" class="control-btn active"></a>
+              <a href="#" class="control-btn"></a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="first-section-wrap section2">
+        <div class="section-wrap">
+          <div class="first-casino-wrap">
+            <div class="casino-tab-wrap">
+              <button class="tab" :class="{ active: activeTab === 'Casino' }" @click="activeTab = 'Casino'">Casino</button>
+              <button class="tab" :class="{ active: activeTab === 'Fishing' }" @click="activeTab = 'Fishing'">Fishing</button>
+              <button class="tab" :class="{ active: activeTab === 'Card game' }" @click="activeTab = 'Card game'">Card game</button>
+            </div>
+            <transition name="fade" mode="out-in">
+              <div class="casino-wrap" :key="activeTab">
+                <a href="#" class="casino-item" v-for="(game, index) in filteredGames" :key="index">
+                  <div class="item-img">
+                    <button class="item-btn">Play</button>
+                    <img :src="game.image" :alt="game.name">
+                  </div>
+                  <div class="item-name">
+                    <div class="name">{{ game.name }}</div>
+                    <div v-if="game.hot" class="hot">HOT</div>
+                  </div>
+                  <div class="item-platform">{{ game.platform }}</div>
+                </a>
+              </div>
+            </transition>
+          </div>
+        </div>
+      </section>
+      <section class="first-section-wrap section3">
+        <div class="section-wrap">
+          <div class="first-live-wrap">
+            <div class="live-wrap">
+              <a href="#" class="live-item">
+                <button class="item-btn">进入游戏</button>
+                <div class="item-text">
+                  <div class="title">BB视讯</div>
+                  <div class="description">
+                    <p>全球最佳视讯直播平台，真人荷官在线发牌，画面真实高清，给您亲临赌场的真实爽快感受！</p>
+                    <p class="text-red">包桌百家樂・經典百家樂・竟咪百家樂</p>
+                  </div>
+                </div>
+                <img src="image/btn_live01.png">
+              </a>
+              <a href="#" class="live-item" style="--color-first-live-line: #02AC63">
+                <button class="item-btn">Play</button>
+                <div class="item-text">
+                  <div class="title">AG视讯</div>
+                  <div class="description">
+                    <p>实体赌场真人荷官现场发牌</p>
+                  </div>
+                </div>
+                <img src="image/btn_live02.png">
+              </a>
+              <a href="#" class="live-item" style="--color-first-live-line: #F5B443">
+                <button class="item-btn">Play</button>
+                <div class="item-text">
+                  <div class="title">DB视讯</div>
+                  <div class="description">
+                    <p>网上体验亲临赌场的刺激</p>
+                  </div>
+                </div>
+                <img src="image/btn_live03.png">
+              </a>
+              <a href="#" class="live-item" style="--color-first-live-line: #3E56E1">
+                <button class="item-btn">Play</button>
+                <div class="item-text">
+                  <div class="title">MG视讯</div>
+                  <div class="description">
+                    <p>给你身临其境的真实感受</p>
+                  </div>
+                </div>
+                <img src="image/btn_live04.png">
+              </a>
+              <a href="#" class="live-item" style="--color-first-live-line: #45DDF6">
+                <button class="item-btn">Play</button>
+                <div class="item-text">
+                  <div class="title">BG视讯</div>
+                  <div class="description">
+                    <p>最美荷官在线互动</p>
+                  </div>
+                </div>
+                <img src="image/btn_live05.png">
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="first-section-wrap section3">
+        <div class="section-wrap">
+          <div class="first-mob-wrap">
+            <div class="mob-left-wrap">
+                <div class="title">
+                  体验极致 手机投注APP
+                </div>
+                <div class="description">
+                  原生APP，便捷登录、操作简单、界面一目了然、游戏畅通无阻、丰富的游戏品类、24小时多平台无缝应用体验。指尖App无处不在，带您开启掌上精彩！
+                </div>
+                <div class="download">
+                  <div class="download-left">
+                    <img src="" alt="">
+                  </div>
+                </div>
+            </div>
+            <div class="mob-right-wrap">
+              <img src="image/bg_mobile.png">
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="page-footer">
+      <div class="footer">
+        <div class="copyright">
+          Copyright © BBIN Reserved
+        </div>
+        <div class="footer-bottom-links">
+          <div class="ele-common-link footer-bottom-link">
+            <ul>
+              <li v-for="(link, index) in footerLinks" :key="index">
+                <a :href="link.link" class="ele-common-link-text ele-common-link-text-cam">{{ link.title }}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
