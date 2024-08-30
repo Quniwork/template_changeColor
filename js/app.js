@@ -2,81 +2,105 @@ const { ref, computed, onMounted } = Vue;
 
 const app = Vue.createApp({
   setup() {
-    const activeTab = ref('Casino'); // 預設為 'Casino' 分類
+    // 之前的 setup 內容
+    const imgHover = ref(null);
+    const customLinks = ref([]);
+    const footerLinks = ref([]);
+    const navItems = ref([]);
+    const activeClass = ref("");
     const games = ref([]);
-    const hotGames = ref([]);
+    const activeTab = ref('Casino');
 
-    // 遊戲清單過濾
+    // 计算属性，用于根据 activeTab 筛选游戏
     const filteredGames = computed(() => {
       return games.value.filter(game => game.category === activeTab.value);
     });
 
-    // 載入資料
-    const fetchGames = async () => {
+    // 数据加载函数
+    const fetchData = async () => {
       try {
-        const response = await fetch("js/data.json"); // 請求 data.json 文件
+        const response = await fetch("js/data.json");
         const data = await response.json();
+        customLinks.value = data.customLinks;
+        footerLinks.value = data.footerLinks;
+        navItems.value = data.navItems;
         games.value = data.games;
-        hotGames.value = data.hotgames;
       } catch (error) {
-        console.error("Failed to load games data:", error);
+        console.error("Failed to load data:", error);
       }
     };
 
+    // 页面加载时执行数据加载
     onMounted(() => {
-      fetchGames();
-      fetchHotGames();
+      activeClass.value = document.body.classList.contains('first') ? 'first' : '';
+      fetchData(); // 加载所有数据
     });
 
+    // 用于判断当前激活状态的函数
+    const isActive = (itemClass) => itemClass === activeClass.value;
+
+    // 新增的表单处理逻辑
+    const username = ref('');
+    const password = ref('');
+    const isPasswordVisible = ref(false);
+
+    const usernamePlaceholderOpacity = ref(1);
+    const passwordPlaceholderOpacity = ref(1);
+
+    const handleFocus = (field) => {
+      if (field === 'username' && username.value.trim() === '') {
+        usernamePlaceholderOpacity.value = 0.5;
+      }
+      if (field === 'password' && password.value.trim() === '') {
+        passwordPlaceholderOpacity.value = 0.5;
+      }
+    };
+
+    const handleBlur = (field) => {
+      if (field === 'username') {
+        usernamePlaceholderOpacity.value = username.value.trim() === '' ? 1 : 0;
+      }
+      if (field === 'password') {
+        passwordPlaceholderOpacity.value = password.value.trim() === '' ? 1 : 0;
+      }
+    };
+
+    const handleInput = (field) => {
+      if (field === 'username') {
+        usernamePlaceholderOpacity.value = username.value.trim() !== '' ? 0 : 0.5;
+      }
+      if (field === 'password') {
+        passwordPlaceholderOpacity.value = password.value.trim() !== '' ? 0 : 0.5;
+      }
+    };
+
+    const togglePasswordVisibility = () => {
+      isPasswordVisible.value = !isPasswordVisible.value;
+    };
+
+    const passwordType = computed(() => (isPasswordVisible.value ? 'text' : 'password'));
+
     return {
+      imgHover,
+      customLinks,
+      footerLinks,
+      navItems,
       activeTab,
-      filteredGames,
+      isActive,
       games,
-      hotGames
+      filteredGames,
+      username,
+      password,
+      isPasswordVisible,
+      usernamePlaceholderOpacity,
+      passwordPlaceholderOpacity,
+      handleFocus,
+      handleBlur,
+      handleInput,
+      togglePasswordVisibility,
+      passwordType,
     };
   }
 });
 
-app.mount("#page-layout");
-
-
-
-
-
-// ===========================================
-// !登入表單效果, 點擊或有值則隱藏ele-login-placeholder
-// ===========================================
-document.addEventListener('DOMContentLoaded', function() {
-  const inputs = document.querySelectorAll('.ele-login-input');
-
-  inputs.forEach(input => {
-    input.addEventListener('focus', function() {
-      const placeholder = input.nextElementSibling;
-      placeholder.style.opacity = 0.5;
-    });
-
-    input.addEventListener('blur', function() {
-      const placeholder = input.nextElementSibling;
-      if (input.value.trim() === '') {
-        placeholder.style.opacity = 1;
-      }
-    });
-
-    input.addEventListener('input', function() {
-      const placeholder = input.nextElementSibling;
-      if (input.value.trim() !== '') {
-        placeholder.style.opacity = 0;
-      } else {
-        placeholder.style.opacity = 0.5;
-      }
-    });
-
-    // 初始化時檢查輸入字段是否有值
-    const placeholder = input.nextElementSibling;
-    if (input.value.trim() !== '') {
-      placeholder.style.opacity = 0;
-    } else {
-      placeholder.style.opacity = 1;
-    }
-  });
-});
+app.mount('#page-layout');
